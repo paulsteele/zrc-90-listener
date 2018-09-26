@@ -28,4 +28,4 @@ while True:
     groups = list(match.groups())
     groups[0] = masterNode
     data = {'button': '_'.join(groups)}
-    post(uri, data=json.dumps(data), headers={'x-ha-access': apiKey, 'content-type': 'application/json'})
+    post(uri, data=json.dumps(data), headers={'Authorization': 'Bearer ' + apiKey, 'content-type': 'application/json'})
