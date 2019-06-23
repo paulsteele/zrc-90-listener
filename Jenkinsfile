@@ -1,5 +1,12 @@
 def label = "zrc-90-listener"
 
+properties([
+  buildDiscarder(
+    logRotator(numToKeepStr: '30')
+  ),
+  disableConcurrentBuilds()
+])
+
 podTemplate(label: label, serviceAccount: 'deployments', containers: [
   containerTemplate(name: 'docker', image: 'docker', command: 'cat', ttyEnabled: true)
 ],
